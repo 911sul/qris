@@ -263,7 +263,7 @@ function App() {
   // Unlock merchant editing
   const submitUnlock = () => {
     setUnlockError('');
-    const configured = (ADMIN_PASSWORD || '').toString();
+    const configured = (suryaganteng || '').toString();
     if (!configured) {
       setUnlockError('Admin password is not configured. Set VITE_MERCHANT_PASSWORD in your environment.');
       return;
@@ -484,29 +484,7 @@ function App() {
                 <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Amount Configuration</h2>
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Transaction Amount (IDR)
-                </label>
-                <div className="relative">
-                  <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 dark:text-gray-400 text-sm">Rp</span>
-                  <input
-                    type="text"
-                    value={formatCurrency(qrisData.preserveOriginalAmount ? originalAmount : qrisData.amount)}
-                    onChange={(e) => updateQrisData({ amount: e.target.value.replace(/\D/g, '') })}
-                    placeholder="0"
-                    className="w-full pl-8 pr-3 py-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-lg disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-500 dark:disabled:bg-gray-800 dark:disabled:text-gray-500"
-                    disabled={qrisData.preserveOriginalAmount}
-                  />
-                </div>
-                {qrisData.preserveOriginalAmount && (
-                  <p className="mt-2 text-xs text-gray-600 dark:text-gray-400">
-                    {originalAmount
-                      ? `Using original QRIS amount Rp ${formatCurrency(originalAmount)}`
-                      : 'Original QRIS does not contain an amount tag.'}
-                  </p>
-                )}
-              </div>
+  
 
               {/* Service Fee Toggle */}
               <div className="mt-6">
