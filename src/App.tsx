@@ -263,7 +263,7 @@ function App() {
   // Unlock merchant editing
   const submitUnlock = () => {
     setUnlockError('');
-    const configured = (suryaganteng || '').toString();
+    const configured = (ADMIN_PASSWORD || '').toString();
     if (!configured) {
       setUnlockError('Admin password is not configured. Set VITE_MERCHANT_PASSWORD in your environment.');
       return;
@@ -484,7 +484,7 @@ function App() {
                 <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Amount Configuration</h2>
               </div>
 
-                <div>
+              <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Transaction Amount (IDR)
                 </label>
@@ -507,10 +507,6 @@ function App() {
                   </p>
                 )}
               </div>
-
-              {/* Service Fee Toggle */}
-              <div className="mt-6">
-                <div className="flex items-center gap-3 mb-4">
 
               {/* Service Fee Toggle */}
               <div className="mt-6">
@@ -809,6 +805,3 @@ function App() {
       </div>
     </div>
   );
-}
-
-export default App;
